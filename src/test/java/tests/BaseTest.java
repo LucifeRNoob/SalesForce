@@ -22,6 +22,10 @@ public class BaseTest {
         driverManager.setTimeout();
     }
 
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     @AfterMethod
     public void closeDriver() {
         driverManager.quitDriver();

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import staticdata.UserCredentials;
@@ -16,10 +17,12 @@ public class LoginPage extends BasePage{
         super(driver);
     }
 
+    @Step("Open 'https://nordas.my.salesforce.com/' url")
     public void openPage() {
         driver.get(WebUrls.SALESFORCE_URL);
     }
 
+    @Step("Login in Salesforce with valid credentials")
     public void login (){
         driver.findElement(USERNAME_INPUT).sendKeys(UserCredentials.USER_NAME);
         driver.findElement(PASSWORD).sendKeys(UserCredentials.PASSWORD);
