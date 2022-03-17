@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import staticdata.WebUrls;
@@ -14,10 +15,12 @@ public class AccountsPage extends BasePage {
         super(driver);
     }
 
+    @Step("Find and click on 'Account' tab")
     public void openAccountTab() {
         driver.get(WebUrls.SALESFORCE_ACCOUNTS_URL);
     }
 
+    @Step("Click on 'New' button to open form for creating an account")
     public void openCreateAccountModal() {
         driver.findElement(NEW_BUTTON).click();
     }

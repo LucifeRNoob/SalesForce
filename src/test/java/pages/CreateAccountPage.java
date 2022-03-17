@@ -2,6 +2,7 @@ package pages;
 
 import elements.DropDownList;
 import elements.InputField;
+import io.qameta.allure.Step;
 import models.SalesForceAccountModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ public class CreateAccountPage extends BasePage {
         super(driver);
     }
 
+    @Step("Fill in the fields with data")
     public void saveNewAccountForm(SalesForceAccountModel accountModel) {
         driver.findElement(SEARCH_INPUT).sendKeys(accountModel.getAccountName());
         new InputField(driver, "Phone").inputText(accountModel.getPhone());

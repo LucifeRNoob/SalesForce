@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -15,6 +16,8 @@ public class SalesForceAccountTest extends BaseTest {
     private static final Logger LOGGER = LogManager.getLogger(SalesForceAccountTest.class.getName());
 
     @Test
+    @Description("Check creating account in Salesforce")
+    @Severity(SeverityLevel.NORMAL)
     public void createAccountTest() {
         LOGGER.info("Creating account in Salesforce. Accounts test started");
         LoginPage loginPage = new LoginPage(driver);
@@ -29,6 +32,6 @@ public class SalesForceAccountTest extends BaseTest {
         CreateAccountPage createAccountPage = new CreateAccountPage(driver);
         LOGGER.debug("Debugging successful message");
         createAccountPage.saveNewAccountForm(GetNewAccountModel.getAccountWithAllFields());
-        Assert.assertTrue(accountsPage.successMessage(),"Message is not shown");
+        Assert.assertTrue(accountsPage.successMessage(), "Message is not shown");
     }
 }
